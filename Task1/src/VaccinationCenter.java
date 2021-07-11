@@ -5,7 +5,6 @@ public class VaccinationCenter {
         Scanner input = new Scanner(System.in);
         int vaccinationStock = 150;
         String []ServiceCenter = new String[6];
-
         Initialise(ServiceCenter);
 
         int userValue=0;
