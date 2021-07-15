@@ -11,6 +11,7 @@ public class Booth {
     }
 
     void ViewVaccinationBooths(int x) {
+        //Viewing all vaccination booth including both occupied and empty booths.
         String check = "e";
         if (customerName == check) {
             System.out.println("Booth number " + x + " is empty. Please assign a customer to this booth.");
@@ -20,13 +21,15 @@ public class Booth {
     }
 
     void ViewEmptyBooths(int x) {
+        //Viewing all empty booths.
         String check = "e";
         if (customerName == check) {
             System.out.println("Booth number " + x + " is empty. Please assign a customer to this booth.");
         }
     }
 
-    void AddPatientEmptyList(int x) {  //Showing empty booth list when user asks to add a new customer to a booth.
+    void AddPatientEmptyList(int x) {
+        //This executes only when you are going to add a new patient to the booth. Shows the empty booths.
         String check = "e";
         if (customerName == check) {
             System.out.println("Booth number " + x + " is empty. Enter" + x + " to assign a customer to this booth.");
@@ -34,6 +37,7 @@ public class Booth {
     }
 
     static int AddPatient(Booth[] customerName, int vaccineStock) {
+        //Lets you add a new patient to the booth. And also gives a list of empty booths to make the task easy.
         Scanner input = new Scanner(System.in);
         System.out.println("Your selection of booth number to the new customer: ");
         int boothNum = input.nextInt();
@@ -43,10 +47,16 @@ public class Booth {
         vaccineStock -= 1;
         System.out.println("Customer " + newCustomer + " successfully added to the booth.");
         System.out.println("");
+        //Checking if the amount of vaccines reach 20 to display a warning message
+        if(vaccineStock==20){
+            System.out.println("WARNING! ||| This center running out of vaccines. You only have 20 vaccines. ||| WARNING!");
+        }
+        System.out.println("");
         return vaccineStock;
     }
 
     static void RemovePatient(Booth[] customerName) {
+        //Lets you remove a patient in a booth.
         System.out.println("");
         Scanner input = new Scanner(System.in);
         System.out.println("Enter the booth number that you want to free?");
@@ -57,8 +67,9 @@ public class Booth {
     }
 
     static void ViewPatientsSorted(Booth[] customerName){
-        String[] stringArray = new String[6];
+        //Viewing names of patients in alphabetical order.
 
+        String[] stringArray = new String[6];
         // copy elements from object array to string array
         for (int i = 0; i < 6; i++) {
             stringArray[i] = String.valueOf(customerName[i]);
@@ -96,11 +107,13 @@ public class Booth {
     }
 
     static void RemainingVaccinations(int stockLevel) {
+        //Viewing remaining amount of vaccines.
         System.out.println("This center currently has " + stockLevel + " number of vaccines.");
         System.out.println("");
     }
 
     static int AddVaccinations(int addStock) {
+        //Lets you update the amount of vaccines.
         Scanner input = new Scanner(System.in);
         System.out.println("How many vaccines do you want to add to the stock?");
         int add = input.nextInt();
