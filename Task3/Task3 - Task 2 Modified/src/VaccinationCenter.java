@@ -3,10 +3,10 @@ public class VaccinationCenter {
     public static void main(String[]args){
         Scanner input = new Scanner(System.in);
         System.out.println("---Welcome to the e-vaccine system!---");
-        Patient []customerInfo = new Patient[6];
-        int vaccinationStock = 150;
+        Patient []customerInfo = new Patient[6]; //Array of objects to store patient information
+        int vaccinationStock = 150; //Amount of vaccines
         for(int x=0;x<6;x++){  //Getting ready all booths
-             customerInfo[x] = new Patient("e","e",0,"e",0000);
+             customerInfo[x] = new Patient("e","e",0,"e","e",0000);
         }
 
         System.out.println("All vaccination booths successfully initialized! Please assign customers to each booth.");
@@ -36,7 +36,7 @@ public class VaccinationCenter {
                 case "VVB":
                     System.out.println("---Viewing all vaccination booths---");
                     for(int x=0;x<6;x++){
-                        customerInfo[x].ViewVaccinationBooths(x);
+                        customerInfo[x].ViewVaccinationBooths(customerInfo,x);
                     }
                     System.out.println("");
                     break;
@@ -64,7 +64,7 @@ public class VaccinationCenter {
                 case "RPB":
                     System.out.println("---Here is the current vaccination booth list---");
                     for(int x=0;x<6;x++){
-                        customerInfo[x].ViewVaccinationBooths(x);
+                        customerInfo[x].ViewVaccinationBooths(customerInfo,x);
                     }
                     System.out.println("");
                     Patient.RemovePatient(customerInfo);

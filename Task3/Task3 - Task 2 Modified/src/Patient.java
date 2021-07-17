@@ -5,13 +5,15 @@ public class Patient {
     private static String secondName;
     private int age;
     private String city;
+    private String vaccineType;
     private long nicNumber;
 
-    public Patient(String firstName,String secondName,int age,String city,long nicNumber) {
+    public Patient(String firstName,String secondName,int age,String city,String vaccineType,long nicNumber) {
         this.firstName = firstName;
         this.secondName = secondName;
         this.age = age;
         this.city = city;
+        this.vaccineType = vaccineType;
         this.nicNumber = nicNumber;
     }
 
@@ -31,13 +33,13 @@ public class Patient {
         return nicNumber;
     }
 
-    void ViewVaccinationBooths(int x) {
+    void ViewVaccinationBooths(Patient[] customerInfo,int x) {
         //Viewing all vaccination booth including both occupied and empty booths.
         String check = "e";
         if (firstName == check) {
             System.out.println("Booth number " + x + " is empty. Please assign a customer to this booth.");
         } else {
-            System.out.println("Booth number " + x + " is occupied by " + firstName +" "+secondName);
+            System.out.println("Booth number " + x + " is occupied by " + customerInfo[x].firstName );
         }
     }
 
@@ -59,32 +61,54 @@ public class Patient {
 
     static int AddPatient(Patient[] customerInfo, int vaccineStock) {
         //Lets you add a new patient to the booth. And also gives a list of empty booths to make the task easy.
+
+        System.out.println("");
+        System.out.println("Booth 0 & 1 --- AstraZeneca");
+        System.out.println("Booth 2 & 3 --- Sinopharm");
+        System.out.println("Booth 4 & 5 --- Pfizer");
+
         Scanner input = new Scanner(System.in);
-        System.out.println("Your selection of booth number to the new customer: ");
+        System.out.println("Your selection of booth number according to the vaccine type to add the new customer: ");
         int boothNum = input.nextInt();
 
-        System.out.println("Enter the first name of the customer for " + boothNum + " :");
-        String newCustomerFirstName = input.next();
+        if(customerInfo[boothNum].firstName.equals("e")){
+            System.out.println("Enter the first name of the customer for " + boothNum + " :");
+            String newCustomerFirstName = input.next();
 
-        System.out.println("Enter the second name of the customer :");
-        String newCustomerSecondName = input.next();
+            System.out.println("Enter the second name of the customer :");
+            String newCustomerSecondName = input.next();
 
-        System.out.println("Enter the age of the customer : ");
-        int newCustomerAge = input.nextInt();
+            System.out.println("Enter the age of the customer : ");
+            int newCustomerAge = input.nextInt();
 
-        System.out.println("City of the customer : ");
-        String newCustomerCity = input.next();
+            System.out.println("City of the customer : ");
+            String newCustomerCity = input.next();
 
-        System.out.println("Enter NIC number of the customer :");
-        long newCustomerNIC = input.nextLong();
+            System.out.println("Enter NIC number of the customer :");
+            long newCustomerNIC = input.nextLong();
 
-        customerInfo[boothNum] = new Patient(newCustomerFirstName,newCustomerSecondName,newCustomerAge,newCustomerCity,newCustomerNIC);
-        vaccineStock -= 1;
-        System.out.println("Customer " + customerInfo[boothNum].firstName +" "+customerInfo[boothNum].secondName +" successfully added to the booth.");
-        System.out.println("");
-        //Checking if the amount of vaccines reach 20 to display a warning message
-        if(vaccineStock==20){
-            System.out.println("WARNING! ||| This center running out of vaccines. You only have 20 vaccines. ||| WARNING!");
+            String newCustomerVaccineType;
+            if((boothNum==0)||(boothNum==1)){
+                newCustomerVaccineType = "AstraZeneca";
+            }
+            else if((boothNum==2)||(boothNum==3)){
+                newCustomerVaccineType = "Sinopharm";
+            }
+            else{
+                newCustomerVaccineType = "Pfizer";
+            }
+
+            customerInfo[boothNum] = new Patient(newCustomerFirstName,newCustomerSecondName,newCustomerAge,newCustomerCity,newCustomerVaccineType,newCustomerNIC);
+            vaccineStock -= 1;
+            System.out.println("Customer " + customerInfo[boothNum].firstName +" "+customerInfo[boothNum].secondName +" successfully added to the booth.");
+            System.out.println("");
+            //Checking if the amount of vaccines reach 20 to display a warning message
+            if(vaccineStock==20){
+                System.out.println("WARNING! ||| This center running out of vaccines. You only have 20 vaccines. ||| WARNING!");
+            }
+        }
+        else{
+            System.out.println("Already occupied by a customer. Please use an empty booth to assign a new customer.");
         }
         System.out.println("");
         return vaccineStock;
@@ -96,7 +120,7 @@ public class Patient {
         Scanner input = new Scanner(System.in);
         System.out.println("Enter the booth number that you want to free?");
         int boothNum = input.nextInt();
-        customerInfo[boothNum] = new Patient("e","e",0,"e",0000);
+        customerInfo[boothNum] = new Patient("e","e",0,"e","e",0000);
         System.out.println("The customer in the booth number "+boothNum+" successfully removed from the booth list.");
         System.out.println("");
     }
@@ -107,11 +131,9 @@ public class Patient {
         String[] stringArray = new String[6];
         // copy elements from object array to string array
         for (int i = 0; i < 6; i++) {
-            stringArray[i] = customerInfo[i].firstName + customerInfo[i].secondName;
+            stringArray[i] = customerInfo[i].firstName;
         }
         int n = 6;
-        System.out.println(stringArray);
-
         String temporary;
         for(int i=0;i<n;i++){
             for (int j=i+1;j<n;j++){
