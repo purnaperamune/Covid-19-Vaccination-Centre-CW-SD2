@@ -11,8 +11,10 @@ public class VaccinationCenter {
         System.out.println("All vaccination booths successfully initialized! Please assign customers to each booth.");
         System.out.println("");
 
+
         int userValue=0;
         while(userValue!=999) {
+
             System.out.println("View all Vaccination Booths:--------------------" + "100 or VVB\n"+
             "View all Empty Booths:--------------------------" + "101 or VEB\n"+
             "Add Patient to a Booth:-------------------------" + "102 or APB\n"+
