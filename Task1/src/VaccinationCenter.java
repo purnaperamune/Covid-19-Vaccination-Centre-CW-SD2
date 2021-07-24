@@ -1,13 +1,20 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 public class VaccinationCenter {
-    public static void main(String[]args){
+    public static void main(String[]args) throws IOException {
         Scanner input = new Scanner(System.in);
         int vaccinationStock = 150;  //Amount of Vaccines
+
         String []ServiceCenter = new String[6];  //Storing names of customers
         Initialise(ServiceCenter);  //Getting ready the booth
 
+        File myFile = new File("vacccinationData.txt"); //Creating a file
+
         int userValue=0;
-        while(userValue!=999){
+        while(userValue!=999){  //This is to exit from the program. You can use do-while loop too instead of this method
             System.out.println("View all Vaccination Booths:--------------------"+"100 or VVB\n"+
             "View all Empty Booths:--------------------------"+"101 or VEB\n"+
             "Add Patient to a Booth:-------------------------"+"102 or APB\n"+
@@ -33,6 +40,7 @@ public class VaccinationCenter {
                 case "VEB":
                     ViewEmptyBooths(ServiceCenter);
                     break;
+
                 case "102":
                 case "APB":
                     vaccinationStock = AddPatient(ServiceCenter,vaccinationStock);
@@ -50,13 +58,11 @@ public class VaccinationCenter {
 
                 case "105":
                 case "SPD":
-                    System.out.println("Store Program Data into file");
-                    StoreFile();
+                    StoreFile(ServiceCenter);
                     break;
 
                 case "106":
                 case "LPD":
-                    System.out.println("Load Program Data from file");
                     LoadFile();
                     break;
 
@@ -123,7 +129,7 @@ public class VaccinationCenter {
     private static int AddPatient(String booth[],int vaccineStock){
         //This lets you to add a new customer to the booth. Also shows empty booths to make the adding task easy.
         System.out.println("---Viewing empty booths that you can add a new customer---");
-        for(int x=0;x<6;x++){
+        for(int x=0;x<6;x++){  //You can use previously declared method(ViewEmptyBooths) here too to show empty booths
             if(booth[x].equals("e")){
                 System.out.println("Booth number "+x+" is empty. Enter "+x+" to assign a customer to this booth.");
             }
@@ -132,8 +138,10 @@ public class VaccinationCenter {
         Scanner input = new Scanner(System.in);
         System.out.println("Your selection of booth number: ");
         int boothNum = input.nextInt();
+
         System.out.println("Enter customer name for booth " + boothNum + " :");
         booth[boothNum] = input.next();
+
         vaccineStock-=1;
         System.out.println("Customer "+booth[boothNum]+" successfully added to the booth.");
         System.out.println("");
@@ -150,9 +158,11 @@ public class VaccinationCenter {
         System.out.println("---Here is the current vaccination booth list---");
         ViewVaccinationBooths(booth);
         System.out.println("");
+
         Scanner input = new Scanner(System.in);
         System.out.println("Enter the booth number that you want to free?");
         int boothFree = input.nextInt();
+
         booth[boothFree] = "e";
         System.out.println("The customer in the booth number "+boothFree+" successfully removed from the booth list.");
         System.out.println("");
@@ -184,11 +194,31 @@ public class VaccinationCenter {
         }
         System.out.println("");
     }
-    public static void StoreFile(){
 
+    public static void StoreFile(String Booth[]) throws IOException {
+        //Storing booth numbers with patient's names to a file
+        FileWriter myFile = new FileWriter("vacccinationData.txt");
+        for(int x=0;x<Booth.length;x++){
+            myFile.write("Booth Number "+x+"\nPatient Name: "+Booth[x]+"\n");
+            myFile.write("------------------\n");
+            myFile.write("");
+        }
+        myFile.close();
+        System.out.println("Vaccination data successfully updated to a file.");
+        System.out.println("");
     }
-    public static void LoadFile(){
 
+    public static void LoadFile() throws FileNotFoundException {
+        //Loading booth numbers with patient's names to the console
+        System.out.println("--- Printing information in the file to the console---");
+        File myFile = new File("vacccinationData.txt");
+        Scanner myReader = new Scanner(myFile);
+        while (myReader.hasNextLine()) {
+            String data = myReader.nextLine();
+            System.out.println(data);
+        }
+        myReader.close();
+        System.out.println("");
 
     }
     private static void RemainingVaccinations(int stockRemain){
