@@ -6,8 +6,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
+
+import java.time.LocalDate;
 
 public class Controller {
 
@@ -15,15 +17,29 @@ public class Controller {
     private Button btnClose;
 
     @FXML
-    private Button btnReceipt;
+    private TextField fName;
 
     @FXML
-    private Button btnCloseReceipt;
+    private TextField sName;
+
+    @FXML
+    private DatePicker presentDate;
 
     @FXML
     public void navigateToReceipt(ActionEvent actionEvent) throws Exception{
+        String firstName = fName.getText();
+        String secondName = sName.getText();
+        LocalDate date = presentDate.getValue();
+
+        FXMLLoader receiptViewLoader = new FXMLLoader(getClass().getResource("Receipt.fxml"));
+        Parent root = (Parent) receiptViewLoader.load();
+
+        ReceiptController receiptController = receiptViewLoader.getController();
+        receiptController.displayText(firstName,secondName);
+        receiptController.displayDate(date);
+
+
         Stage newStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("Receipt.fxml"));
         newStage.setTitle("Receipt");
         newStage.setScene(new Scene(root,493,296));
         newStage.show();
@@ -35,12 +51,6 @@ public class Controller {
     @FXML
     public void closeProgram(){
         Stage stage = (Stage) btnClose.getScene().getWindow();
-        stage.close();
-    }
-
-    @FXML
-    public void closeReceipt(){
-        Stage stage = (Stage) btnCloseReceipt.getScene().getWindow();
         stage.close();
     }
 }

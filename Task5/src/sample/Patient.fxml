@@ -21,7 +21,7 @@
       <RowConstraints />
    </rowConstraints>
    <children>
-      <AnchorPane prefHeight="485.0" prefWidth="513.0">
+      <AnchorPane prefHeight="510.0" prefWidth="513.0">
          <children>
             <Label layoutX="145.0" layoutY="37.0" prefHeight="38.0" prefWidth="231.0" text="Patient Details">
                <font>
@@ -53,7 +53,7 @@
                   <Font name="SansSerif Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="91.0" layoutY="309.0" text="Vaccination">
+            <Label layoutX="91.0" layoutY="310.0" text="Vaccination">
                <font>
                   <Font name="SansSerif Bold" size="18.0" />
                </font>
@@ -71,7 +71,7 @@
             <Separator layoutX="74.0" layoutY="126.0" prefWidth="230.0" />
             <MenuButton fx:id="patientVaccine" contentDisplay="CENTER" layoutX="198.0" layoutY="309.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="133.0" text="Vaccination Type">
               <items>
-                  <RadioMenuItem mnemonicParsing="false" text="AstraZeneca" />
+                  <RadioMenuItem fx:id="astraZeneca" mnemonicParsing="false" text="AstraZeneca" />
                   <RadioMenuItem mnemonicParsing="false" text="Sinopharm" />
                   <RadioMenuItem mnemonicParsing="false" text="Pfizer" />
               </items>
@@ -91,8 +91,14 @@
                   <RadioMenuItem mnemonicParsing="false" text="6" />
               </items>
             </MenuButton>
-            <Button fx:id="btnReceipt" layoutX="304.0" layoutY="395.0" mnemonicParsing="false" onAction="#navigateToReceipt" style="-fx-background-color: #008CBA;" text="Generate Receipt" />
-            <Button fx:id="btnClose" layoutX="248.0" layoutY="396.0" mnemonicParsing="false" onAction="#closeProgram" style="-fx-background-color: #f44336#f44336;" text="Close" />
+            <Button fx:id="btnReceipt" layoutX="304.0" layoutY="425.0" mnemonicParsing="false" onAction="#navigateToReceipt" style="-fx-background-color: #008CBA;" text="Generate Receipt" />
+            <Button fx:id="btnClose" layoutX="248.0" layoutY="425.0" mnemonicParsing="false" onAction="#closeProgram" style="-fx-background-color: #f44336#f44336;" text="Close" />
+            <Label layoutX="155.0" layoutY="383.0" text="Date">
+               <font>
+                  <Font name="SansSerif Bold" size="18.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="presentDate" layoutX="198.0" layoutY="381.0" />
          </children>
       </AnchorPane>
    </children>

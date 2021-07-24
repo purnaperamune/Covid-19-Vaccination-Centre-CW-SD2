@@ -6,8 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="296.0" prefWidth="493.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane prefHeight="296.0" prefWidth="493.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ReceiptController">
    <children>
       <Label layoutX="51.0" layoutY="33.0" prefHeight="38.0" prefWidth="121.0" text="Receipt">
          <font>
@@ -16,5 +15,14 @@
       </Label>
       <Separator layoutX="51.0" layoutY="70.0" prefWidth="200.0" />
       <Button fx:id="btnCloseReceipt" layoutX="337.0" layoutY="198.0" mnemonicParsing="false" onAction="#closeReceipt" style="-fx-background-color: #f44336#f44336 #f44336#f44336;" text="Close" />
+      <Label fx:id="lblPatient" layoutX="81.0" layoutY="99.0" text="patientName">
+         <font>
+            <Font size="20.0" />
+         </font></Label>
+      <Label fx:id="lblDate" layoutX="81.0" layoutY="154.0" text="presentDate">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
