@@ -1,0 +1,18 @@
+Booth Number 0
+Patient Name: Purna
+------------------
+Booth Number 1
+Patient Name: Riveen
+------------------
+Booth Number 2
+Patient Name: Teron
+------------------
+Booth Number 3
+Patient Name: Yohan
+------------------
+Booth Number 4
+Patient Name: Yenuli
+------------------
+Booth Number 5
+Patient Name: e
+------------------

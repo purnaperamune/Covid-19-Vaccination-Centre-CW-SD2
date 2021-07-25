@@ -1,3 +1,7 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 public class Booth {
     private String customerName;
@@ -98,12 +102,30 @@ public class Booth {
         System.out.println("");
     }
 
-    static void StoreFile() {
-        System.out.println("Still Processing");
+    static void StoreFile(Booth[] customerName) throws IOException {
+        //Storing booth numbers with patient's names to a file
+        FileWriter myFile = new FileWriter("vacccinationData.txt");
+        for (int i = 0; i < 6; i++) {
+            myFile.write("Booth Number "+i+"\nPatient Name: "+String.valueOf(customerName[i])+"\n");
+            myFile.write("------------------\n");
+            myFile.write("");
+        }
+        myFile.close();
+        System.out.println("Vaccination data successfully updated to a file.");
+        System.out.println("");
     }
 
-    static void LoadFile() {
-        System.out.println("Still Processing");
+    static void LoadFile() throws FileNotFoundException {
+        //Loading booth numbers with patient's names to the console
+        System.out.println("--- Printing information in the file to the console---");
+        File myFile = new File("vacccinationData.txt");
+        Scanner myReader = new Scanner(myFile);
+        while (myReader.hasNextLine()) {
+            String data = myReader.nextLine();
+            System.out.println(data);
+        }
+        myReader.close();
+        System.out.println("");
     }
 
     static void RemainingVaccinations(int stockLevel) {
