@@ -1,3 +1,7 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Patient {
@@ -28,6 +32,9 @@ public class Patient {
     }
     public String toStringCity(){
         return  city;
+    }
+    public String toStringVaccine(){
+        return vaccineType;
     }
     public long toStringNIC(){
         return nicNumber;
@@ -156,12 +163,37 @@ public class Patient {
         System.out.println("");
     }
 
-    static void StoreFile() {
+    static void StoreFile(Patient[] customerInfo) throws IOException {
         System.out.println("Still Processing");
+        //Storing booth numbers with patient's names to a file
+        FileWriter myFile = new FileWriter("vacccinationData.txt");
+        for (int i = 0; i < 6; i++) {
+            if(!(customerInfo[i].toStringFirstName().equals("e"))){
+                myFile.write("Booth Number "+i+"\nPatient Name: "+customerInfo[i].toStringFirstName()+"\n"+
+                        "Age: "+customerInfo[i].Age()+"\n"+
+                        "City: "+customerInfo[i].toStringCity()+"\n"+
+                        "NIC: "+customerInfo[i].toStringNIC()+"\n"+
+                        "Vaccine type: "+customerInfo[i].toStringVaccine()+"\n");
+                myFile.write("------------------\n");
+                myFile.write("");
+            }
+        }
+        myFile.close();
+        System.out.println("Vaccination data successfully updated to a file.");
+        System.out.println("");
     }
 
-    static void LoadFile() {
-        System.out.println("Still Processing");
+    static void LoadFile() throws FileNotFoundException {
+        //Loading booth numbers with patient's names to the console
+        System.out.println("--- Printing information in the file to the console---");
+        File myFile = new File("vacccinationData.txt");
+        Scanner myReader = new Scanner(myFile);
+        while (myReader.hasNextLine()) {
+            String data = myReader.nextLine();
+            System.out.println(data);
+        }
+        myReader.close();
+        System.out.println("");
     }
 
     static void RemainingVaccinations(int stockLevel) {

@@ -1,18 +1,15 @@
 Booth Number 0
-Patient Name: Lakindu
+Patient Name: purna
 ------------------
 Booth Number 1
-Patient Name: Purna
+Patient Name: nisal
 ------------------
 Booth Number 2
-Patient Name: Riveen
+Patient Name: teron
 ------------------
 Booth Number 3
-Patient Name: Jeromiya
+Patient Name: gerrn
 ------------------
 Booth Number 4
-Patient Name: TERON
-------------------
-Booth Number 5
-Patient Name: Yohan
+Patient Name: kalindu
 ------------------

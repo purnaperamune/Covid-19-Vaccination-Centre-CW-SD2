@@ -1,6 +1,8 @@
+import java.io.File;
+import java.io.IOException;
 import java.util.Scanner;
 public class VaccinationCenter {
-    public static void main(String[]args){
+    public static void main(String[]args) throws IOException {
         Scanner input = new Scanner(System.in);
         System.out.println("---Welcome to the e-vaccine system!---");
         Patient []customerInfo = new Patient[6]; //Array of objects to store patient information
@@ -11,6 +13,8 @@ public class VaccinationCenter {
 
         System.out.println("All vaccination booths successfully initialized! Please assign customers to each booth.");
         System.out.println("");
+
+        File myFile = new File("vacccinationData.txt"); //Creating a file
 
 
         int userValue = 0;
@@ -79,7 +83,7 @@ public class VaccinationCenter {
                 case "105":
                 case "SPD":
                     System.out.println("Store Program Data into file");
-                    Patient.StoreFile();
+                    Patient.StoreFile(customerInfo);
                     break;
 
                 case "106":

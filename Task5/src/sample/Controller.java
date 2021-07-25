@@ -26,7 +26,7 @@ public class Controller {
     private DatePicker presentDate;
 
     @FXML
-    public void navigateToReceipt(ActionEvent actionEvent) throws Exception{
+    public void navigateToReceipt(ActionEvent actionEvent) throws Exception{ //Navigating from patient details input area to receipt area
         String firstName = fName.getText();
         String secondName = sName.getText();
         LocalDate date = presentDate.getValue();
@@ -49,7 +49,7 @@ public class Controller {
     }
 
     @FXML
-    public void closeProgram(){
+    public void closeProgram(){ //Closing patient details area to go to receipt area
         Stage stage = (Stage) btnClose.getScene().getWindow();
         stage.close();
     }

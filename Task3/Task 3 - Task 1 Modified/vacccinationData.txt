@@ -1,0 +1,16 @@
+Booth Number 0
+Patient Name: Purna Peramune
+Vaccine type: AstraZeneca
+------------------
+Booth Number 1
+Patient Name: Sanidu Sulohith
+Vaccine type: AstraZeneca
+------------------
+Booth Number 2
+Patient Name: Teron Shenal
+Vaccine type: Sinopharm
+------------------
+Booth Number 3
+Patient Name: Riveen Manatunge
+Vaccine type: Sinopharm
+------------------

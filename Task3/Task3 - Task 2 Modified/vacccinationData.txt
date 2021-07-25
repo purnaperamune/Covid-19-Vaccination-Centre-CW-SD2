@@ -1,0 +1,21 @@
+Booth Number 0
+Patient Name: Purna
+Age: 19
+City: Colombo
+NIC: 2001
+Vaccine type: AstraZeneca
+------------------
+Booth Number 1
+Patient Name: Sanidu
+Age: 12
+City: Homagama
+NIC: 23211
+Vaccine type: AstraZeneca
+------------------
+Booth Number 2
+Patient Name: Dulani
+Age: 29
+City: Kottawa
+NIC: 1991
+Vaccine type: Sinopharm
+------------------

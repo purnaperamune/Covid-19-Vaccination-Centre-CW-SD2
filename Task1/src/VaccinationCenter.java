@@ -199,9 +199,11 @@ public class VaccinationCenter {
         //Storing booth numbers with patient's names to a file
         FileWriter myFile = new FileWriter("vacccinationData.txt");
         for(int x=0;x<Booth.length;x++){
-            myFile.write("Booth Number "+x+"\nPatient Name: "+Booth[x]+"\n");
-            myFile.write("------------------\n");
-            myFile.write("");
+            if(!(Booth[x].equals("e"))){
+                myFile.write("Booth Number "+x+"\nPatient Name: "+Booth[x]+"\n");
+                myFile.write("------------------\n");
+                myFile.write("");
+            }
         }
         myFile.close();
         System.out.println("Vaccination data successfully updated to a file.");

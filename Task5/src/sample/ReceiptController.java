@@ -19,18 +19,18 @@ public class ReceiptController {
 
 
     @FXML
-    public void closeReceipt(){
+    public void closeReceipt(){ //Closing receipt window
         Stage stage = (Stage) btnCloseReceipt.getScene().getWindow();
         stage.close();
     }
 
     @FXML
-    public void displayText(String firstName,String secondName){
+    public void displayText(String firstName,String secondName){ //Displaying patient information in receipt window
         lblPatient.setText("Customer Name : "+firstName+" "+secondName);
     }
 
     @FXML
-    public void displayDate(LocalDate date){
+    public void displayDate(LocalDate date){ //Displaying date in receipt window
         lblDate.setText("Date : "+date);
 
     }

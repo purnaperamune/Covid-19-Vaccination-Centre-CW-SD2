@@ -1,8 +1,12 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class VaccinationCenter {
-    public static void main(String[]args){
+    public static void main(String[]args) throws IOException {
         Scanner input = new Scanner(System.in);
         int vaccinationStock = 21; //Amount of Vaccines
 
@@ -10,6 +14,8 @@ public class VaccinationCenter {
         String[] secondName = new String[6]; //Array to store second name
         String[] vaccineType = new String[6]; //Array to store vaccine type related to each customer
         Initialise(firstName,secondName,vaccineType); //Getting ready the booth
+
+        File myFile = new File("vacccinationData.txt"); //Creating a file
 
         int userValue=0;
         while(userValue!=999){
@@ -57,7 +63,7 @@ public class VaccinationCenter {
                 case "105":
                 case "SPD":
                     System.out.println("Store Program Data into file");
-                    StoreFile();
+                    StoreFile(firstName,secondName,vaccineType);
                     break;
 
                 case "106":
@@ -227,10 +233,35 @@ public class VaccinationCenter {
         }
         System.out.println("");
     }
-    public static void StoreFile(){
+    public static void StoreFile(String[] fName,String[] sName,String[] vaccineType) throws IOException {
+        //Storing booth numbers with patient's names to a file
+        FileWriter myFile = new FileWriter("vacccinationData.txt");
+        for(int x=0;x<fName.length;x++){
+            if(!(fName[x].equals("e"))){
+                myFile.write("Booth Number "+x+"\nPatient Name: "+fName[x]+" "+sName[x]+"\n"+"Vaccine type: "+vaccineType[x]+"\n");
+                myFile.write("------------------\n");
+                myFile.write("");
+            }
+            else{
+                continue;
+            }
+        }
+        myFile.close();
+        System.out.println("Vaccination data successfully updated to a file.");
+        System.out.println("");
 
     }
-    public static void LoadFile(){
+    public static void LoadFile() throws FileNotFoundException {
+        //Loading booth numbers with patient's names to the console
+        System.out.println("--- Printing information in the file to the console---");
+        File myFile = new File("vacccinationData.txt");
+        Scanner myReader = new Scanner(myFile);
+        while (myReader.hasNextLine()) {
+            String data = myReader.nextLine();
+            System.out.println(data);
+        }
+        myReader.close();
+        System.out.println("");
 
 
     }
