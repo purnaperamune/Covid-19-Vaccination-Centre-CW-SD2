@@ -79,7 +79,7 @@ public class Patient {
         int boothNum = input.nextInt();
 
         if(customerInfo[boothNum].firstName.equals("e")){
-            System.out.println("Enter the first name of the customer for " + boothNum + " :");
+            System.out.println("Enter the first name of the customer for booth number " + boothNum + ":");
             String newCustomerFirstName = input.next();
 
             System.out.println("Enter the second name of the customer :");
@@ -164,7 +164,6 @@ public class Patient {
     }
 
     static void StoreFile(Patient[] customerInfo) throws IOException {
-        System.out.println("Still Processing");
         //Storing booth numbers with patient's names to a file
         FileWriter myFile = new FileWriter("vacccinationData.txt");
         for (int i = 0; i < 6; i++) {

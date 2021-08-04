@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class VaccinationCenter {
     public static void main(String[]args) throws IOException {
         Scanner input = new Scanner(System.in);
-        int vaccinationStock = 21; //Amount of Vaccines
+        int vaccinationStock = 150; //Amount of Vaccines
 
         String[] firstName = new String[6]; //Array to store first name
         String[] secondName = new String[6]; //Array to store second name
@@ -20,15 +20,15 @@ public class VaccinationCenter {
         int userValue=0;
         while(userValue!=999){
             System.out.println("View all Vaccination Booths:--------------------"+"100 or VVB\n"+
-            "View all Empty Booths:--------------------------"+"101 or VEB\n"+
-            "Add Patient to a Booth:-------------------------"+"102 or APB\n"+
-            "Remove Patient from a Booth:--------------------"+"103 or RPB\n"+
-            "View Patients Sorted in alphabetical order:-----"+"104 or VPS\n"+
-            "Store Program Data into file:-------------------"+"105 or SPD\n"+
-            "Load Program Data from file:--------------------"+"106 or LPD\n"+
-            "View Remaining Vaccinations:--------------------"+"107 or VRV\n"+
-            "Add Vaccinations to the Stock:------------------"+"108 or AVS\n"+
-            "Exit the Program:-------------------------------"+"999 or EXT");
+                    "View all Empty Booths:--------------------------"+"101 or VEB\n"+
+                    "Add Patient to a Booth:-------------------------"+"102 or APB\n"+
+                    "Remove Patient from a Booth:--------------------"+"103 or RPB\n"+
+                    "View Patients Sorted in alphabetical order:-----"+"104 or VPS\n"+
+                    "Store Program Data into file:-------------------"+"105 or SPD\n"+
+                    "Load Program Data from file:--------------------"+"106 or LPD\n"+
+                    "View Remaining Vaccinations:--------------------"+"107 or VRV\n"+
+                    "Add Vaccinations to the Stock:------------------"+"108 or AVS\n"+
+                    "Exit the Program:-------------------------------"+"999 or EXT");
 
 
             System.out.println("");

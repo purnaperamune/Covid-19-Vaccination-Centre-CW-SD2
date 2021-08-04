@@ -70,11 +70,11 @@
             </Label>
             <Separator layoutX="74.0" layoutY="126.0" prefWidth="230.0" />
             <MenuButton fx:id="patientVaccine" contentDisplay="CENTER" layoutX="198.0" layoutY="309.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="133.0" text="Vaccination Type">
-              <items>
+               <items>
                   <RadioMenuItem fx:id="astraZeneca" mnemonicParsing="false" text="AstraZeneca" />
                   <RadioMenuItem mnemonicParsing="false" text="Sinopharm" />
                   <RadioMenuItem mnemonicParsing="false" text="Pfizer" />
-              </items>
+               </items>
             </MenuButton>
             <Label layoutX="68.0" layoutY="348.0" text="Booth Number">
                <font>
@@ -82,14 +82,14 @@
                </font>
             </Label>
             <MenuButton fx:id="patientBooth" layoutX="198.0" layoutY="344.0" mnemonicParsing="false" text="Booth No">
-              <items>
+               <items>
                   <RadioMenuItem mnemonicParsing="false" text="1" />
                   <RadioMenuItem mnemonicParsing="false" text="2" />
                   <RadioMenuItem mnemonicParsing="false" text="3" />
                   <RadioMenuItem mnemonicParsing="false" text="4" />
                   <RadioMenuItem mnemonicParsing="false" text="5" />
                   <RadioMenuItem mnemonicParsing="false" text="6" />
-              </items>
+               </items>
             </MenuButton>
             <Button fx:id="btnReceipt" layoutX="304.0" layoutY="425.0" mnemonicParsing="false" onAction="#navigateToReceipt" style="-fx-background-color: #008CBA;" text="Generate Receipt" />
             <Button fx:id="btnClose" layoutX="248.0" layoutY="425.0" mnemonicParsing="false" onAction="#closeProgram" style="-fx-background-color: #f44336#f44336;" text="Close" />

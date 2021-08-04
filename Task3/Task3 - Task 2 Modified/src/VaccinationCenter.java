@@ -8,7 +8,7 @@ public class VaccinationCenter {
         Patient []customerInfo = new Patient[6]; //Array of objects to store patient information
         int vaccinationStock = 150; //Amount of vaccines
         for(int x=0;x<6;x++){  //Getting ready all booths
-             customerInfo[x] = new Patient("e","e",0,"e","e",0000);
+            customerInfo[x] = new Patient("e","e",0,"e","e",0000);
         }
 
         System.out.println("All vaccination booths successfully initialized! Please assign customers to each booth.");
@@ -52,6 +52,8 @@ public class VaccinationCenter {
                         customerInfo[x].ViewEmptyBooths(x);
                     }
                     System.out.println("");
+                    System.out.println("IF YOU CANNOT SEE ANYTHING, CONSIDER THAT ALL BOOTHS ARE OCCUPIED!");
+                    System.out.println("");
                     break;
 
                 case "102":
@@ -82,13 +84,11 @@ public class VaccinationCenter {
 
                 case "105":
                 case "SPD":
-                    System.out.println("Store Program Data into file");
                     Patient.StoreFile(customerInfo);
                     break;
 
                 case "106":
                 case "LPD":
-                    System.out.println("Load Program Data from file");
                     Patient.LoadFile();
                     break;
 

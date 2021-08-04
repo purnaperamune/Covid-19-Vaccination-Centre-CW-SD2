@@ -16,15 +16,15 @@ public class VaccinationCenter {
         int userValue=0;
         while(userValue!=999){  //This is to exit from the program. You can use do-while loop too instead of this method
             System.out.println("View all Vaccination Booths:--------------------"+"100 or VVB\n"+
-            "View all Empty Booths:--------------------------"+"101 or VEB\n"+
-            "Add Patient to a Booth:-------------------------"+"102 or APB\n"+
-            "Remove Patient from a Booth:--------------------"+"103 or RPB\n"+
-            "View Patients Sorted in alphabetical order:-----"+"104 or VPS\n"+
-            "Store Program Data into file:-------------------"+"105 or SPD\n"+
-            "Load Program Data from file:--------------------"+"106 or LPD\n"+
-            "View Remaining Vaccinations:--------------------"+"107 or VRV\n"+
-            "Add Vaccinations to the Stock:------------------"+"108 or AVS\n"+
-            "Exit the Program:-------------------------------"+"999 or EXT");
+                    "View all Empty Booths:--------------------------"+"101 or VEB\n"+
+                    "Add Patient to a Booth:-------------------------"+"102 or APB\n"+
+                    "Remove Patient from a Booth:--------------------"+"103 or RPB\n"+
+                    "View Patients Sorted in alphabetical order:-----"+"104 or VPS\n"+
+                    "Store Program Data into file:-------------------"+"105 or SPD\n"+
+                    "Load Program Data from file:--------------------"+"106 or LPD\n"+
+                    "View Remaining Vaccinations:--------------------"+"107 or VRV\n"+
+                    "Add Vaccinations to the Stock:------------------"+"108 or AVS\n"+
+                    "Exit the Program:-------------------------------"+"999 or EXT");
 
 
             System.out.println("");
@@ -88,7 +88,7 @@ public class VaccinationCenter {
             }
         }
     }
-    private static void Initialise(String booth[]){
+    public static void Initialise(String booth[]){
         //Getting ready all 6 booths to store names of customers.
         System.out.println("---Welcome to the e-vaccination system!---");
         for(int x=0;x<6;x++){
@@ -98,7 +98,7 @@ public class VaccinationCenter {
         System.out.println("All vaccination booths successfully initialized! Please assign customers to each booth.");
         System.out.println("");
     }
-    private static void ViewVaccinationBooths(String booth[]){
+    public static void ViewVaccinationBooths(String booth[]){
         //This views all vaccination booths  including empty booths.
         System.out.println("---Viewing all vaccination booths---");
         for(int x=0;x<6;x++){
@@ -111,7 +111,7 @@ public class VaccinationCenter {
         }
         System.out.println("");
     }
-    private static void ViewEmptyBooths(String booth[]){
+    public static void ViewEmptyBooths(String booth[]){
         //This views only empty booths which can assign a new customer.
         System.out.println("---Viewing all empty vaccination booths---");
         int checkEmpty=0;  //A variable which used to check if all the booth are occupied or not.
@@ -126,7 +126,7 @@ public class VaccinationCenter {
         }
         System.out.println("");
     }
-    private static int AddPatient(String booth[],int vaccineStock){
+    public static int AddPatient(String booth[],int vaccineStock){
         //This lets you to add a new customer to the booth. Also shows empty booths to make the adding task easy.
         System.out.println("---Viewing empty booths that you can add a new customer---");
         for(int x=0;x<6;x++){  //You can use previously declared method(ViewEmptyBooths) here too to show empty booths
@@ -153,7 +153,7 @@ public class VaccinationCenter {
         System.out.println("");
         return vaccineStock;
     }
-    private static void RemovePatient(String booth[]){
+    public static void RemovePatient(String booth[]){
         //This lets you to remove a customer and free a booth. To make the task easy, it shows occupied booths too.
         System.out.println("---Here is the current vaccination booth list---");
         ViewVaccinationBooths(booth);
@@ -168,7 +168,7 @@ public class VaccinationCenter {
         System.out.println("");
 
     }
-    private static void ViewPatientsSorted(String booth[]){
+    public static void ViewPatientsSorted(String booth[]){
         //Viewing customer names in alphabetical order.
         System.out.println("---Viewing customer names according to the alphabetical order---");
         int n = 6;

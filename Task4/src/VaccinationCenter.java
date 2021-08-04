@@ -1,11 +1,13 @@
 import java.io.File;
 import java.io.IOException;
+import java.util.LinkedList;
 import java.util.Scanner;
 public class VaccinationCenter {
     public static void main(String[]args) throws IOException {
         Scanner input = new Scanner(System.in);
         System.out.println("---Welcome to the e-vaccine system!---");
         Booth []customerName = new Booth[6]; //Array of booth objects to store details of customers
+        LinkedList<String> waitingList = new LinkedList<String>(); //Waiting list to add extra patients when all booths are occupied
         int vaccinationStock = 150; //Amount of vaccines
 
         File myFile = new File("vacccinationData.txt"); //Creating a file
@@ -52,7 +54,8 @@ public class VaccinationCenter {
                         customerName[x].ViewEmptyBooths(x);
                     }
                     System.out.println("");
-                    System.out.println("IF YOU CANNOT SEE ANYTHING, CONSIDER THAT ALL BOOTHS ARE OCCUPIED!");
+                    System.out.println("IF YOU CANNOT SEE ANYTHING, CONSIDER THAT ALL BOOTHS ARE OCCUPIED! STILL YOU " +
+                            "CAN ADD PATIENTS TO A WAITING LIST.");
                     System.out.println("");
                     break;
 
@@ -63,7 +66,10 @@ public class VaccinationCenter {
                         customerName[x].AddPatientEmptyList(x);
                     }
                     System.out.println("");
-                    vaccinationStock = Booth.AddPatient(customerName,vaccinationStock);
+                    System.out.println("IF YOU CANNOT SEE ANYTHING, CONSIDER THAT ALL BOOTHS ARE OCCUPIED! STILL YOU " +
+                            "CAN ADD PATIENTS TO A WAITING LIST.");
+                    System.out.println("");
+                    vaccinationStock = Booth.AddPatient(customerName,waitingList,vaccinationStock);
                     break;
 
                 case "103":
@@ -73,7 +79,7 @@ public class VaccinationCenter {
                         customerName[x].ViewVaccinationBooths(x);
                     }
                     System.out.println("");
-                    Booth.RemovePatient(customerName);
+                    Booth.RemovePatient(customerName,waitingList);
                     break;
 
                 case "104":
